@@ -1,0 +1,17 @@
+{
+  "name": "notes-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "notes-api",
+  "entrypoint": "deployment/service",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app", "description": "Sign-in identity provider whose tokens the gateway checks before calls reach this service." },
+    { "kind": "platform-resource", "name": "notes-db", "resourceType": "postgres-cnpg", "description": "Stores the notes." }
+  ],
+  "description": "Single service that owns the notes: lists every note newest first and posts a new note for the signed-in team member, enforcing the 1 to 280 character plain-text limit. It offers no edit or delete, sends no notifications and holds no attachments. It is separate from the web app because the browser app and the data have different lifecycles; the board's data is reached only through it.",
+  "stories": ["F1.1", "F1.2", "F1.3", "F1.4", "F1.5"],
+  "skillsPinned": ["openapi-conventions", "ballerina", "thunder-authentication", "api-management"]
+}

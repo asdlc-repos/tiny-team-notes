@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "name": "Team notes board",
+  "entryScreen": "screen.board",
+  "roles": [{ "id": "TeamMember", "name": "Team member" }],
+  "states": [
+    { "id": "state.default", "name": "Default" },
+    { "id": "state.empty", "name": "No notes yet" },
+    { "id": "state.validation-error", "name": "Note refused" },
+    { "id": "state.failed", "name": "Board failed to load" }
+  ],
+  "screens": [
+    { "id": "screen.board", "name": "Notes board", "roleIds": ["TeamMember"] },
+    { "id": "screen.account", "name": "Account", "roleIds": ["TeamMember"] },
+    { "id": "screen.signed-out", "name": "Signed out", "roleIds": ["TeamMember"] }
+  ],
+  "flows": [
+    { "id": "flow.post-note", "name": "Post a note", "roleId": "TeamMember", "screenIds": ["screen.board"] },
+    { "id": "flow.read-board", "name": "Read the board", "roleId": "TeamMember", "screenIds": ["screen.board"] }
+  ]
+}

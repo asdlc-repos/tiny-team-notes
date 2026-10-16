@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "notes",
+      "component": "notes-api",
+      "description": "Short notes on the team board",
+      "actions": [
+        { "handle": "read-all", "description": "Every note on the board, from every team member" },
+        { "handle": "post", "description": "Post a new note as the caller; notes cannot be edited or deleted" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "Team Members", "description": "People who post and read notes on the team notes board" }
+  ],
+  "roles": [
+    {
+      "name": "TeamMember",
+      "description": "A team member who posts short notes and reads every note on the board. Cannot edit or delete any note, including their own.",
+      "stories": ["F1.1", "F1.2", "F1.3", "F1.4", "F1.5"],
+      "grants": ["notes:read-all", "notes:post"],
+      "assignTo": ["Team Members"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-team-member", "roles": ["TeamMember"] }
+  ]
+}
