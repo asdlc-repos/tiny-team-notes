@@ -1,0 +1,4 @@
+apiVersion = "agentic-engineer/v1"
+name = "tiny-team-notes"
+createdAt = "2026-10-16T19:18:28Z"
+idea = "A tiny team notes board. A team member posts a short text note (max 280 characters) and everyone on the team sees all notes, newest first. That is the whole product: one feature, one role (team member), no editing, no deleting, no notifications, no attachments."
